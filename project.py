@@ -133,7 +133,7 @@ def generate_report(info_dictionary, calculations_dictionary) -> str:
 
 
 ############################# Manual calculations
-def required_capital() -> float:
+def required_capital(cf, r, n) -> float:
     '''
     Starting capital needed at the beggining of retirement.
     Get the present value of a series of future cashflows.
@@ -143,12 +143,10 @@ def required_capital() -> float:
     n = number of years in retirement
     return Present Value of cashflows
     '''
-    cf = float(input("How much cashflow you need per month in your retirement? ")) * 12
-    r = (1+_r)/(1+_inf)-1
-    n = float(input("How many years you expect to be retired? "))
+    
     return cf*(1-1/(1+r)**n)/r
 
-def required_return() -> float:
+def required_return(pv, fv, n) -> float:
     '''
     Required return on your money to reach future value target
     Get the geometric return.
@@ -158,12 +156,9 @@ def required_return() -> float:
     n = number of periods to go from pv to fv
     return geometric return
     '''
-    pv = float(input("How much do you have right now? ").strip())
-    fv = float(input("What's your monetary target? ").strip())
-    n = float(input("How many years of investment? ").strip())
     return (fv/pv)**(1/n) -1
 
-def required_years() -> float:
+def required_years(pv, fv, r) -> float:
     '''
     Required years to reach a specific monetary goal.
 
@@ -172,12 +167,9 @@ def required_years() -> float:
     r = investment real rate of return
     return number of periods to get from pv to fv
     '''
-    pv = float(input("How much do you have right now? ").strip())
-    fv = float(input("What's your monetary target? ").strip())
-    r = (1+_r)/(1+_inf)-1
     return (log(fv/pv)/log(1+r))
 
-def required_annual_cf() -> float:
+def required_annual_cf(fv, r, n, svgs) -> float:
     '''
     Get the required annual cashflows to reach fv.
 
@@ -187,13 +179,9 @@ def required_annual_cf() -> float:
     svgs = current savings
     return Future Value with cash flows
     '''
-    fv = float(input("What's your monetary target? ").strip())
-    r = (1+_r)/(1+_inf)-1
-    n = float(input("How many years of investment? ").strip())
-    svgs = float(input("What's your current savings? ").strip())
     return (fv-svgs*(1+r)**n)/(((1+r)**n-1)/r)
 
-def required_lumpsum(m=1) -> float:
+def required_lumpsum(fv, r, n, m=1) -> float:
     '''
     Get the present value of a future cashflow.
 
@@ -203,9 +191,6 @@ def required_lumpsum(m=1) -> float:
     m = annual capitalizations, default = 1
     return Present Value
     '''
-    fv = float(input("What's your monetary target? ").strip())
-    r = (1+_r)/(1+_inf)-1
-    n = float(input("How many years of investment? ").strip())
     return fv*(1+r/m)**(-n*m)
 
 
@@ -261,15 +246,31 @@ def menu() -> None:
             else:
                 pass
         elif option == "2":
-            print(f"The required real rate of return is: {required_return():.2f}.")
+            pv = float(input("How much do you have right now? ").strip())
+            fv = float(input("What's your monetary target? ").strip())
+            n = float(input("How many years of investment? ").strip())
+            print(f"The required real rate of return is: {required_return(pv, fv, n):.2f}.\n\n")
         elif option == "3":
-            print(f"The necessary number of years is: {required_years():.2f}.")
+            pv = float(input("How much do you have right now? ").strip())
+            fv = float(input("What's your monetary target? ").strip())
+            r = (1+_r)/(1+_inf)-1
+            print(f"The necessary number of years is: {required_years(pv, fv, r):.2f}.\n\n")
         elif option == "4":
-            print(f"The necessary immediate investment value is: {required_lumpsum():.2f}.")
+            fv = float(input("What's your monetary target? ").strip())
+            r = (1+_r)/(1+_inf)-1
+            n = float(input("How many years of investment? ").strip())
+            print(f"The necessary immediate investment value is: {required_lumpsum(fv, r, n):.2f}.\n\n")
         elif option == "5":
-            print(f"The annual investment value that you have to make is: {required_annual_cf():.2f}.")
+            fv = float(input("What's your monetary target? ").strip())
+            r = (1+_r)/(1+_inf)-1
+            n = float(input("How many years of investment? ").strip())
+            svgs = float(input("What's your current savings? ").strip())
+            print(f"The annual investment value that you have to make is: {required_annual_cf(fv, r, n, svgs):.2f}.\n\n")
         elif option == "6":
-            print(f"The required capital at the beggining of your retirement is: {required_capital():.2f}.")
+            cf = float(input("How much cashflow you need per month in your retirement? ")) * 12
+            r = (1+_r)/(1+_inf)-1
+            n = float(input("How many years you expect to be retired? "))
+            print(f"The required capital at the beggining of your retirement is: {required_capital(cf, r, n):.2f}.\n\n")
         elif option == "7":
             collect_data()
         elif option == "8":
