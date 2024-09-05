@@ -1,0 +1,22 @@
+
+
+--------------------AUTO REPORT--------------------
+Hello again Karen this is your retirement planning report.
+
+ASSUMPTIONS
+Analysed inflation rate: 0.03
+Real rate of investment return 0.049
+
+At 27 you have 0.0 in savings.
+You expect to retire at age 49, 22 years from now.
+In order for you to withdraw monthly 650.0 in your retirement, you need 139751.36 at the beginning of your retirement.
+To reach that target you have 3 options:
+
+1-) Invest today 49255.23 at 0.08 nominal rate of return, and let compound interest do the heavy lifting.
+2-) Invest annually 3692.42 (monthly 307.70) at 0.08 nominal rate of return.
+3-) Or invest today your current savings (0.0) and Invest annually 3692.42 (monthly 307.70) at 0.08 nominal rate of return.
+
+COMPARISON OF THE 3
+Option 1-) total investment is 49255.23, you only invest one time, today.
+Option 2-) total investment is 81233.26, you invest annually 22 times.
+Option 3-) total investment is 81233.26, you invest your savings today and invest annually 22 times.

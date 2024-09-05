@@ -1,0 +1,22 @@
+
+
+--------------------AUTO REPORT--------------------
+Hello again Joe this is your retirement planning report.
+
+ASSUMPTIONS
+Analysed inflation rate: 0.03
+Real rate of investment return 0.049
+
+At 30 you have 5000.0 in savings.
+You expect to retire at age 55, 25 years from now.
+In order for you to withdraw monthly 500.0 in your retirement, you need 93785.84 at the beginning of your retirement.
+To reach that target you have 3 options:
+
+1-) Invest today 28673.06 at 0.08 nominal rate of return, and let compound interest do the heavy lifting.
+2-) Invest annually 2004.83 (monthly 167.07) at 0.08 nominal rate of return.
+3-) Or invest today your current savings (5000.0) and Invest annually 1655.23 (monthly 137.94) at 0.08 nominal rate of return.
+
+COMPARISON OF THE 3
+Option 1-) total investment is 28673.06, you only invest one time, today.
+Option 2-) total investment is 50120.78, you invest annually 25 times.
+Option 3-) total investment is 46380.73, you invest your savings today and invest annually 25 times.
