@@ -8,7 +8,10 @@ None of this data is shared with anyone, all data is locally stored in your pc.
 
 #### Quick Guide:
 
-Install necessary libraries: !pip install -r requirements.txt
+**Install necessary libraries:** 
+!pip install -r requirements.txt
+
+Examples can be found on Examples folder.
 
 Full Report option will do all the math for you after you give it some info to work with. At the end you'll get an output of the calculations and an option to save that output as txt file.
 
