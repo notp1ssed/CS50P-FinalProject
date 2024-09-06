@@ -45,7 +45,7 @@ def collect_data() -> dict:
                             "retirement_age": _retirement_age,  # age at which wishes to retire
                             "retirement_time": _retirement_time,# total time spent in retirement
                             "working_years": _working_years,    # no. years that's still going to work
-                            "retirement_cf": _retirement_cf,    # annual cf adjust today's value for inflation 3% annually
+                            "retirement_cf": _retirement_cf,    # monthly cf adjust today's value for inflation 3% annually
                             "current_savings": _current_savings # Current savings
                             }
         
@@ -74,11 +74,12 @@ def auto_report(dictionary) -> dict:
     Returns a dictionary with calculations figures.
     '''
     cf = (dictionary['retirement_cf'] * 12)
+    cf_adj = cf * (1+_inf)**dictionary['working_years'] # monthly cf adjusted for inflation
     r = (1+_r)/(1+_inf)-1
     n = dictionary['retirement_time']
     m = 1
     # Required capital at the start of retirement
-    _req_capital = cf*(1-1/(1+r)**n)/r
+    _req_capital = cf_adj*(1-1/(1+r)**n)/r
     
     # Required amount to invest today to reach target
     fv: float = _req_capital
