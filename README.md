@@ -1,7 +1,5 @@
 # Retirement planning tool
 
-#### Video Demo:  [URL](https://youtu.be/KnNYFvI6BSw)
-
 #### Description:
 WHAT'S YOUR NUMBER? I'll tell you your number.
 
